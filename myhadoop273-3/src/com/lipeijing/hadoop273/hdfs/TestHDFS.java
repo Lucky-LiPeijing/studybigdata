@@ -1,5 +1,6 @@
 package com.lipeijing.hadoop273.hdfs;
 
+import org.apache.hadoop.fs.FsUrlStreamHandlerFactory;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ public class TestHDFS {
     @Test
     public void readFile() {
         try {
+            // 注册URL流处理器工厂（hdfs）
+            URL.setURLStreamHandlerFactory(new FsUrlStreamHandlerFactory());
             URL url = new URL("hdfs://192.168.188.131:8020/lipeijing/core-site.xml");
             URLConnection conn = url.openConnection();
             InputStream is = conn.getInputStream();
