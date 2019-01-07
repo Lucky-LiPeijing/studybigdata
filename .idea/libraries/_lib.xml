@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../../hadoop-2.7.6/_lib" />
+      <root url="jar://$PROJECT_DIR$/../../hadoop-2.7.6/_sources/hadoop-common-2.7.6-sources.jar!/" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../../hadoop-2.7.6/_lib" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../../hadoop-2.7.6/_lib" recursive="false" type="SOURCES" />
