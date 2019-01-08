@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
 
 /**
  * @Classname TestHDFS
@@ -133,6 +134,25 @@ public class TestHDFS {
         try {
             FileSystem fs = FileSystem.get(conf);
             fs.delete(new Path("/user/lipeijing/"), true);
+            fs.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 通过hadoop api递归列出文件文件 write
+     */
+    @Test
+    public void listFile() {
+        Configuration conf = new Configuration();
+        conf.set("fs.defaultFS", "hdfs://192.168.188.131:8020");
+        try {
+            FileSystem fs = FileSystem.get(conf);
+            RemoteIterator rit = fs.listFiles(new Path("/"), true);
+            while (rit.hasNext()) {
+                System.out.println(rit.next());
+            }
             fs.close();
         } catch (IOException e) {
             e.printStackTrace();
